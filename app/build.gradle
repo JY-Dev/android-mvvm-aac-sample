@@ -1,0 +1,96 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    buildFeatures{
+        dataBinding = true
+    }
+    defaultConfig {
+        applicationId "com.jydev.riiidsimapleapllication"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    // Network dependencies
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+    implementation "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:${versions.okhttp}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}"
+
+    // coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
+
+    implementation "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}"
+    implementation "io.reactivex.rxjava2:rxjava:${versions.rxJava}"
+
+    // Koin for Kotlin
+    implementation "org.koin:koin-core:${versions.koin}"
+    // Koin extended & experimental features
+    implementation "org.koin:koin-core-ext:${versions.koin}"
+    // Koin for Unit tests
+    testImplementation "org.koin:koin-test:${versions.koin}"
+    // Koin for Java developers
+    implementation "org.koin:koin-java:${versions.koin}"
+
+    // Koin for Android
+    implementation "org.koin:koin-android:${versions.koin}"
+    // Koin Android Scope features
+    implementation "org.koin:koin-android-scope:${versions.koin}"
+    // Koin Android ViewModel features
+    implementation "org.koin:koin-android-viewmodel:${versions.koin}"
+    // Koin Android Experimental features
+    implementation "org.koin:koin-android-ext:${versions.koin}"
+
+    // Koin AndroidX Scope features
+    implementation "org.koin:koin-androidx-scope:${versions.koin}"
+    // Koin AndroidX ViewModel features
+    implementation "org.koin:koin-androidx-viewmodel:${versions.koin}"
+    // Koin AndroidX Experimental features
+    implementation "org.koin:koin-androidx-ext:${versions.koin}"
+
+
+    // aac dependencies
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

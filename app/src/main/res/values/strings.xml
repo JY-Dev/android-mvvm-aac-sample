@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MvvmApllication</string>
+    <string name="title">Title</string>
+    <string name="comment">Comment</string>
+    <string name="back">Back</string>
+    <string name="delete">Delete</string>
+    <string name="modify">Modify</string>
+    <string name="posts">Posts</string>
+    <string name="cancel">Cancel</string>
+    <string name="input_title">Please Input Title</string>
+    <string name="no_data">There is no data</string>
+    <string name="delete_data">Data has been deleted</string>
+    <string name="update_data">Data has been updated</string>
+    <string name="load_data">Data has been loaded</string>
+</resources>
