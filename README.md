@@ -2,13 +2,9 @@
 
 # ♟️Description
 
----
-
-This repository contains a sample app that implements MVVM architecture using Koin, Retrofit, RxJava, Coroutine, Repository Design Pattern, Infinite Recyclerview, Databinding.
+## This repository contains a sample app that implements MVVM architecture using Koin, Retrofit, RxJava, Coroutine, Repository Design Pattern, Infinite Recyclerview, Databinding.
 
 # ♣️ Stack & Libraries
-
----
 
 - Minimum SDK level 21
 - JetPack
@@ -23,8 +19,6 @@ This repository contains a sample app that implements MVVM architecture using Ko
 - Okhttp
 
 # 🎮 Architecture - MVVM
-
----
 
 ![image](https://user-images.githubusercontent.com/45057493/103400930-429baa00-4b8a-11eb-85dc-c05cf30c7c39.png)
 
