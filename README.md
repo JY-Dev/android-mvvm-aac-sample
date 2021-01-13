@@ -2,7 +2,7 @@
 
 # ♟️Description
 
-## This repository contains a sample app that implements MVVM architecture using Koin, Retrofit, RxJava, Coroutine, Repository Design Pattern, Infinite Recyclerview, Databinding.
+### This repository contains a sample app that implements MVVM architecture using Koin, Retrofit, RxJava, Coroutine, Repository Design Pattern, Infinite Recyclerview, Databinding.
 
 # ♣️ Stack & Libraries
 
