@@ -26,6 +26,6 @@ This repository contains a sample app that implements MVVM architecture using Ko
 
 ---
 
-![android-mvvm-sample%20baf3695f124e4bccbeca12d868669c83/img.png](android-mvvm-sample%20baf3695f124e4bccbeca12d868669c83/img.png)
+![image](https://user-images.githubusercontent.com/45057493/103400930-429baa00-4b8a-11eb-85dc-c05cf30c7c39.png)
 
 -
