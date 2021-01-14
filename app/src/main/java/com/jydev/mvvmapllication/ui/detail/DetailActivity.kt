@@ -1,6 +1,7 @@
 package com.jydev.riiidsimapleapllication.ui.detail
 
 import android.os.Bundle
+import com.jydev.mvvmapllication.ui.detail.DetailViewModel
 import com.jydev.riiidsimapleapllication.R
 import com.jydev.riiidsimapleapllication.base.BaseActivity
 import com.jydev.riiidsimapleapllication.databinding.ActivityDetailBinding

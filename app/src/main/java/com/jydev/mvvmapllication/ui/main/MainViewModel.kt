@@ -7,6 +7,7 @@ import com.jydev.riiidsimapleapllication.model.network.PostRequest
 import com.jydev.riiidsimapleapllication.model.user.PostMapper
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import java.util.concurrent.TimeUnit
 
 class MainViewModel(private val repository: Repository) : ViewModel() {
     private val composite = CompositeDisposable()
@@ -23,7 +24,8 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
      */
     fun deletePost(status: MainActivity.ItemStatus.Delete) {
         loading.value = true
-        repository.deletePost(status.post.id).subscribe {
+        repository.deletePost(status.post.id)
+                .throttleFirst(1000L,TimeUnit.MILLISECONDS).subscribe {
             if (it.isSuccessful)
                 statusLiveData.value = status
             loading.value = false

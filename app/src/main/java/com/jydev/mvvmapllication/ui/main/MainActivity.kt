@@ -2,6 +2,7 @@ package com.jydev.riiidsimapleapllication.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import com.jydev.riiidsimapleapllication.R
 import com.jydev.riiidsimapleapllication.base.BaseActivity
@@ -11,26 +12,38 @@ import com.jydev.riiidsimapleapllication.ui.detail.DetailActivity
 import com.jydev.riiidsimapleapllication.ui.main.adapter.MainPostsAdapter
 import com.jydev.riiidsimapleapllication.ui.main.adapter.PostItemDecoration
 import com.jydev.riiidsimapleapllication.ui.main.dialog.ModifyDialog
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import io.reactivex.subjects.PublishSubject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import java.util.concurrent.TimeUnit
 
 class MainActivity : BaseActivity() {
-    val viewModel: MainViewModel by viewModel { parametersOf() }
+    private val viewModel: MainViewModel by viewModel { parametersOf() }
+    private val clickSubject = PublishSubject.create<ItemStatus>().apply {
+        throttleFirst(1,TimeUnit.SECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe{
+                    when (it) {
+                        is ItemStatus.Info -> startActivity(
+                                Intent(this@MainActivity, DetailActivity::class.java).apply {
+                                    putExtra(KEY, it.post.id)
+                                })
+                        is ItemStatus.Delete -> {
+                            viewModel.deletePost(it)
+                        }
+                        is ItemStatus.Update -> ModifyDialog(this@MainActivity,it.post.title) {newTitle ->
+                            viewModel.updatePost(it.apply {
+                                post.title = newTitle
+                            })
+                        }.show()
+                    }
+                }
+    }
     val bind by binding<ActivityMainBinding>(R.layout.activity_main)
-    var mainAdapter = MainPostsAdapter {
-        when (it) {
-            is ItemStatus.Info -> startActivity(
-                Intent(this@MainActivity, DetailActivity::class.java).apply {
-                    putExtra(KEY, it.post.id)
-                })
-            is ItemStatus.Delete -> viewModel.deletePost(it)
-            is ItemStatus.Update -> ModifyDialog(this,it.post.title) {newTitle ->
-                viewModel.updatePost(it.apply {
-                    post.title = newTitle
-                })
-            }.show()
-        }
-
+    private var mainAdapter = MainPostsAdapter {
+        clickSubject.onNext(it)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

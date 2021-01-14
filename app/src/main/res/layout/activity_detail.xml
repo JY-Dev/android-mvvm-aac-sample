@@ -4,7 +4,7 @@
         <import type="android.view.View"/>
         <variable
             name="detailViewModel"
-            type="com.jydev.riiidsimapleapllication.ui.detail.DetailViewModel" />
+            type="com.jydev.mvvmapllication.ui.detail.DetailViewModel" />
         <variable
             name="itemDecoration"
             type="com.jydev.riiidsimapleapllication.ui.detail.adapter.CommentItemDecoration" />

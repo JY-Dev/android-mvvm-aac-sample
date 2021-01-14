@@ -1,7 +1,7 @@
 package com.jydev.riiidsimapleapllication.di
 
 
-import com.jydev.riiidsimapleapllication.ui.detail.DetailViewModel
+import com.jydev.mvvmapllication.ui.detail.DetailViewModel
 import com.jydev.riiidsimapleapllication.ui.main.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

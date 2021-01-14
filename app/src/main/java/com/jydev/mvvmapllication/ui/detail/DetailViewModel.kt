@@ -1,4 +1,4 @@
-package com.jydev.riiidsimapleapllication.ui.detail
+package com.jydev.mvvmapllication.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
